@@ -198,6 +198,14 @@ Processes all tasks from `tasks.md` in order, delegating to backend and web deve
 /speckit.implement
 ```
 
+#### `/cgs.git.commit` — Logical Git Commits
+
+Creates logical, feature-grouped git commits from uncommitted changes. Runs lint/build pre-flight checks, groups changes by User Story, updates documentation incrementally per commit, and enforces a docs-first staging rule.
+
+```
+/cgs.git.commit
+```
+
 #### `/speckit.checklist` — Generate Quality Checklist
 
 Creates requirement quality checklists that validate whether specs are complete, clear, and testable (not implementation checklists).
@@ -441,11 +449,13 @@ This is the recommended end-to-end workflow for every feature you release. Each 
 ### Standard Feature Development
 
 ```
-/speckit.specify "feature description"     → spec.md + branch
-/speckit.clarify                           → refined spec.md
-/speckit.plan                              → plan.md + contracts + data model
-/speckit.tasks                             → tasks.md
-/speckit.implement                         → working code + tests
+ /speckit.specify "feature description"     → spec.md + branch
+ /speckit.clarify                           → refined spec.md
+ /speckit.plan                              → plan.md + contracts + data model
+ /speckit.tasks                             → tasks.md
+ /speckit.implement                         → working code + tests
+ /cgs.git.commit                            → logical feature-grouped commits
+ /qa.fullpass                               → test results + bug reports
 ```
 
 ### Design-First Development
@@ -987,6 +997,7 @@ This generates a Playwright test that compares live rendered pages against Figma
 │   │   ├── speckit.tasks.md           # Task breakdown
 │   │   ├── speckit.analyze.md         # Cross-artifact analysis
 │   │   ├── speckit.implement.md       # Task execution
+│   │   ├── cgs.git.commit.md          # Logical git commits
 │   │   ├── speckit.checklist.md       # Quality checklists
 │   │   ├── speckit.constitution.md    # Project governance
 │   │   └── speckit.taskstoissues.md   # GitHub issue export
