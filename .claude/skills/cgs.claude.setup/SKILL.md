@@ -1,6 +1,6 @@
 ---
 name: cgs.claude.setup
-description: Bootstrap a project with the CGS Claude Code toolchain. Copies cgs.* skills, speckit.* commands, agents, MCP config, and constitution from the latest cgs-team-claude-setup repo. Use when setting up a new project or syncing to the latest CGS toolchain version.
+description: Bootstrap a project with the CGS Claude Code toolchain. Copies cgs.* skills, _* guide skills, speckit.* commands, agents, MCP config, and constitution from the latest cgs-team-claude-setup repo. Use when setting up a new project or syncing to the latest CGS toolchain version.
 argument-hint: "[--update]"
 ---
 
@@ -19,6 +19,7 @@ CGS_TMP=$(mktemp -d) && git clone --depth 1 https://github.com/CodeGeneration-20
 ```bash
 mkdir -p .claude/skills .claude/commands .claude/agents .specify
 cp -R "$CGS_TMP"/.claude/skills/cgs.* .claude/skills/
+cp -R "$CGS_TMP"/.claude/skills/_* .claude/skills/
 cp "$CGS_TMP"/.claude/commands/speckit.* .claude/commands/
 cp "$CGS_TMP"/.claude/agents/*.md .claude/agents/
 cp "$CGS_TMP"/.mcp.json .mcp.json
